@@ -16,7 +16,9 @@ func main() {
 
 	// Get all courses
 	courses := co.List(client)
-	fmt.Printf("%+v", courses)
+	for _, course := range courses {
+		fmt.Printf("%s: %s\n", course.Name, course.Id)
+	}
 	// For each course,list all students in the class in a different column on google sheets
 	for _, course := range courses {
 		fmt.Printf("\nGetting students for %s\n", course.Name)
