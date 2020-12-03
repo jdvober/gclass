@@ -3,18 +3,16 @@ package main
 import (
 	"fmt"
 
-	auth "github.com/jdvober/goGoogleAuth"
+	"github.com/jdvober/gauth"
 
-	/* subs "github.com/jdvober/goClassroomTools/studentSubmissions" */
-
-	co "github.com/jdvober/goClassroomTools/courses"
-	/* cw "github.com/jdvober/goClassroomTools/courseWork" */)
+	"github.com/jdvober/gclass"
+)
 
 func main() {
-	client := auth.Authorize()
+	client := gauth.Authorize()
 
 	// Get all courses
-	courses := co.List(client)
+	courses := gclass.ListCourses(client)
 	for _, course := range courses {
 		fmt.Printf("%s: %s\n", course.Name, course.Id)
 	}
